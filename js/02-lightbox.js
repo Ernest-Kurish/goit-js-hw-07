@@ -7,16 +7,6 @@ const galleryContainer = document.querySelector('.gallery');
 const imagesCardsMarkup = createImgCardsMarkup(galleryItems);
 galleryContainer.insertAdjacentHTML('beforeend', imagesCardsMarkup);
 
-// add simple-lightbox library styles
-const linkStyles = document.createElement('link');
-linkStyles.href = 'https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.7.0/simplelightbox.min.css';
-linkStyles.rel = 'stylesheet';
-document.head.appendChild(linkStyles);
-
-// add simple-lightbox library script
-const scriptLibrary = document.createElement('script');
-scriptLibrary.src = 'https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.7.0/simple-lightbox.min.js';
-document.body.appendChild(scriptLibrary);
 
 // initialize simple-lightbox library
 document.addEventListener('DOMContentLoaded', () => {

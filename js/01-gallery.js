@@ -1,3 +1,4 @@
+
 import { galleryItems } from "./gallery-items.js";
 
 const galleryContainer = document.querySelector(".gallery");
@@ -9,7 +10,7 @@ function createImgCardsMarkup(images) {
     .map(({ preview, original, description }) => {
       return `
         <div class="gallery__item">
-          <a class="gallery__link" href="#">
+          <a class="gallery__link" href="${original}">
             <img
               class="gallery__image"
               src="${preview}"
@@ -34,6 +35,14 @@ function openModalWindow(e) {
   );
   originalImgModalMarkup.show();
 
+  // ADD CSS RULES
+  const imgElement = originalImgModalMarkup.element().querySelector('img');
+  imgElement.style.position = 'fixed';
+  imgElement.style.top = '0';
+  imgElement.style.left = '0';
+  imgElement.style.width = '100%';
+  imgElement.style.height = '100%';
+
   // ADD EVENT
   window.addEventListener("keydown", onEscapeClick);
 
@@ -56,6 +65,7 @@ function onGalleryContainerClick(e) {
   if (e.target.nodeName !== "IMG") {
     return;
   }
+  e.preventDefault(); // Prevent default link behavior
   openModalWindow(e);
 }
 
